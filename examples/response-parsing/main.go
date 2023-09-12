@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/adayNU/go-sf/pkg/constants"
+	"github.com/adayNU/go-sf/internal/constants"
 	"github.com/fabiustech/anthropic"
 )
 
