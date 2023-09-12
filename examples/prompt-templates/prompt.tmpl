@@ -1,0 +1,9 @@
+I would like you to generate an email to a prospect of mine ({{ .FirstName }} {{ .LastName }}), who works in the {{ .Industry }} industry.
+
+Use language that is appropriate for someone working in {{ .Industry }}, and assume they are knowledgeable of common terms & concepts in that industry.
+
+The contents of the email should ask if they have a problem that is common for their industry, and if so, ask if they would like to discuss how I can help solve it for them.
+
+{{ if .Concise }}
+The email should be extremely concise, written as if it were for an executive who is very busy and receives a lot of email.
+{{ end }}
