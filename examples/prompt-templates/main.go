@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/fabiustech/anthropic"
 	"os"
+	"strings"
 	"text/template"
 
 	"github.com/adayNU/go-sf/pkg/constants"
@@ -73,7 +74,7 @@ func main() {
 
 	var resp *anthropic.Response
 	resp, err = c.NewCompletion(context.Background(), &anthropic.Request{
-		Prompt:            anthropic.NewPromptFromString(buf.String()),
+		Prompt:            anthropic.NewPromptFromString(strings.TrimSpace(buf.String())),
 		Model:             anthropic.Claude,
 		MaxTokensToSample: 500,
 		Temperature:       anthropic.Optional(0.0),
@@ -82,5 +83,5 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(resp.Completion)
+	fmt.Printf("\n\n%s\n", resp.Completion)
 }
