@@ -6,12 +6,12 @@ import (
 	"embed"
 	"flag"
 	"fmt"
-	"github.com/fabiustech/anthropic"
 	"os"
 	"strings"
 	"text/template"
 
 	"github.com/adayNU/go-sf/pkg/constants"
+	"github.com/fabiustech/anthropic"
 )
 
 //go:embed *.tmpl
@@ -41,6 +41,7 @@ func init() {
 	flag.Parse()
 }
 
+// Person represents a person you want to generate an email for.
 type Person struct {
 	FirstName, LastName, Industry string
 	Concise                       bool
@@ -70,7 +71,7 @@ func main() {
 	}
 
 	var c = anthropic.NewClient(key)
-	c.Debug() // This will show output the prompt to stdout.
+	c.Debug() // This will log the prompt to stdout.
 
 	var resp *anthropic.Response
 	resp, err = c.NewCompletion(context.Background(), &anthropic.Request{
